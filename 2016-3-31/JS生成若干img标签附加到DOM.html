@@ -4,11 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script>
-	 for(var i=0;i<5;i++){
-	 	var oImg=document.createElement('img');
-	 	oImg.innerHTML=1;
-	 	document.body.appendChild(oImg);
-	 }
+	var url = ['1.png', '2.png', '3.png'];
+	function addImg(arr) {
+	    var body = document.getElementById('page');//获取<body>
+	    var text = '';
+	    for (var i = 0; i < arr.length; i++) {//生成img的文本
+	        text += '<img src=\"' + arr[i] + '\">';
+	    }
+	    body.innerHTML = text;
+	}
+	addImg(url);
 	</script>
 </head>
 <body>
