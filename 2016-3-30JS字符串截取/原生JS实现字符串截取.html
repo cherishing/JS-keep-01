@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	/*
+	  原生Javascript实现字符串截取
+	  思路：
+	       字符串，起始位置，长度
+	       一个字符串，从它的起始位置开始获取每一位的字符，直到达到长度
+	*/
+	function substr(str,start,len){
+       var startChar=str.charAt(start);          //获取起始字符
+       var arr=[];		                         //空数组用来存放字符
+       for(var i=start;i<(start+len);i++){       //从起始字符开始循环获取每一位字符，存入数组，最后拼接
+       		var nowChar=str.charAt(i);
+       		arr.push(nowChar);
+       }
+       var temp=arr.join('');
+      return  temp;
+	}
+	console.log(substr('abcasdredasf',2,5));      //输出casdr
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

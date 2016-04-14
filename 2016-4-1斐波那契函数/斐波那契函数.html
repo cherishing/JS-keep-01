@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+        /*
+          斐波那契函数：
+          f(0)=0; f(1)=1; f(n)=f(n-1)+f(n-2)(n>=2);
+          使用回调函数
+        */
+
+        function feibo(n){
+                if(n==0){
+                        return 0;
+                }else if(n==1){
+                        return 1;
+                }else{
+                        return feibo(n-1)+feibo(n-2);
+                }
+        }
+        for(var i=0;i<100;i++){
+                    console.log(feibo(i));
+        }
+    </script>
+</head>
+<body>
+	
+</body>
+</html>
