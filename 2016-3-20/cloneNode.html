@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	/*
+	 cloneNode()方法的使用
+	 node.cloneNode(true) 深度克隆，克隆节点和属性，及其后代
+	 */
+	window.onload=function (){
+     var oDiv=document.getElementById('div_0');  //获取元素
+     
+     for(var i=0;i<5;i++){
+     	var oBj=oDiv.cloneNode(true);  //将当前元素克隆
+     	oBj.setAttribute('id','div_'+i); //修改元素id,保证id唯一
+     	oDiv.parentNode.appendChild(oBj); //插入main中
+     }
+
+
+	}
+	</script>
+</head>
+<body>
+     <div id='main'>
+        <div id='div_0'>
+                <span>1111</span>
+                <span>2222</span>
+        </div>
+   </div>
+
+</body>
+</html>

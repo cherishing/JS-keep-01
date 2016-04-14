@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	/*
+	  找出出现次数最多的字符及其次数
+      正则
+	 */
+	var str="aabbddeeeeefdxxxd";
+    var arr=str.split('');
+    var str=arr.sort().join('');
+    var re=/(\w)\1+/g;
+    var index=0;
+    var value="";
+    str.replace(re,function ($0,$1){  //$0:匹配的的字符串，$1:匹配的字符
+    		if(index<$0.length){
+    			index=$0.length;
+    			value=$1;
+    		}
+    });
+    console.log(value,index);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
