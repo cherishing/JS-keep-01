@@ -20,7 +20,17 @@
      }
 	</style>
 	<script>
-
+	var tb = document.getElementById("tb");
+	
+	// 事件处理函数
+	var clickHandler = function(event){
+	        if(event.target.nodeName == "TD"){
+	                event.target.contentEditable = "true";
+	        }
+	}
+	
+	// 事件委托
+	tb.addEventListener("click", clickHandler, false);
 
 	</script>
 </head>
