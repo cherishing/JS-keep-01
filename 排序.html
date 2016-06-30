@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+<script>
+    /*
+        插入排序：
+        1.直接插入排序：顺序地把待排序的数据元素按其关键字值的大小插入到已排序数据元素子集合的适当位置。
+
+        2.希尔排序：把待排序的数据元素分成若干个小组，对同一小组内的数据元素用直接插入排序；小组的个数逐次缩小。
+
+        选择排序：
+        3.直接选择排序：从待排序的数据元素集合中选取关键字最小的数据元素并将它与原始数据元素集合中的第一个数据元素交换位置；
+                        然后从不包括第一个位置的数据元素集合中选取关键字最小的数据元素并将它与原始数据集合中的第二个数据原始交换位置；
+                        如此重复，直到数据元素集合中只剩一个数据元素为止。
+
+        4.堆排序：
+
+        交换排序：
+        5.冒泡排序：第一次，选取相邻的两个元素比较(交换位置)；第二次，元素个数-1，选取相邻的两个元素比较
+                    .......
+
+        6.快速排序：low high
+     */
+
+    //1.直接插入排序 
+    function InsertSort(arr){
+        var i,j,temp;
+        for(var i=0;i<arr.length-1;i++){    //控制趟数
+            temp=arr[i+1];
+            j=i;
+            while(temp<arr[j]){             //插入有序
+                arr[j+1]=arr[j];
+                j--;
+            }
+            arr[j+1]=temp;
+        }
+        console.log(arr);
+        return arr;
+    }
+    // InsertSort([1,111,3,2,4]);
+
+
+    // 2.希尔排序
+    function ShellSort(arr){
+        var i,j,k,m,span;            
+        for(m=0;m<arr.length;m++){                  //控制循环次数
+            span=parseInt(arr.length/(++m));            //步长；每次的增量 
+            for(k=0;k<span;k++){                        //span个小组
+                for(i=k;i<arr.length-span;i=i+span){    //组内直接插入排序，区别是每次不是增1而是增span
+                    temp=arr[i+span];
+                    j=i;
+                    while(temp<arr[j]){
+                        arr[j+span]=arr[j];
+                        j=j-span;
+                    }
+                    arr[j+span]=temp;
+                }
+            }
+        }
+        console.log(arr);
+        return arr;
+    }
+    // ShellSort([2,223,3,2,4,5,1,432,2,3]);
+    
+     // 3.直接选择排序
+     function SelectSort(arr){
+        var len=arr.length,temp;
+        for(var i=0;i<len-1;i++){
+            var min=arr[i];             //设置第i个数据元素最小
+            for(var j=i+1;j<len;j++){   //找最小的数据元素
+                if(arr[j]<min){
+                    temp=min;
+                    min=arr[j];
+                    arr[j]=temp;
+                }
+            }
+            arr[i]=min;
+        }
+        console.log(arr);
+        return arr;
+     }
+
+
+     // SelectSort( [432,43,234,44,22,11,4,6,23,44,22,11,44]);
+     
+     // 5.冒泡排序
+     function BubbleSort(arr){
+        var i,j,temp;
+        var len=arr.length;
+        for(i=0;i<len;i++){
+            for(j=0;j<len-i;j++){
+                if(arr[j]>arr[j+1]){
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        console.log(arr);
+        return arr;
+
+     }
+     // BubbleSort([43,2,1,5,2,6,234,22,44,11,2,1]);
+     
+     //快速排序
+     function  quickSort(arr,left,right){
+        if(left<right){
+            var x=arr[right],i=left-1,temp;
+            for(var j=left;j<=right;j++){
+                if(arr[j]<=x){
+                    i++;
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+            quickSort(arr,left,i-1);
+            quickSort(arr,i+1,right);
+        }
+        return arr;
+     }
+
+     var a=quickSort([43,2,1,5,2,6,234,22,44,11,2,1],0,11);
+     console.log(a);
+</script>    
+</body>
+</html>

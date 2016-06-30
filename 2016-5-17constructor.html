@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+		  constructor: 构造器
+		  1.constructor始终指向创建当前对象的构造(初始化)函数
+		  2.每个函数都有一个默认的属性prototype,而这个prototype的constructor默认指向这个函数
+
+		 */
+		//1
+       function Person(name){
+       		this.name=name;
+       }
+       Person.prototype.getName=function (){
+       	return this.name;
+       }
+       var p1=new Person("Lisi");
+       console.log(p1.constructor===Person);  //true
+       console.log(Person.prototype.constructor===Person);  //true
+       console.log(p1.constructor.prototype.constructor===Person);  //true
+
+
+       // 2
+       function Person(name){
+       		this.name=name;
+       }
+       Person.prototype={
+       	getName:function (){
+       		return this.name;
+       	}
+       };
+       var p1=new Person("Lisi");
+       console.log(p1.constructor===Person);  //false
+       console.log(Person.prototype.constructor===Person); //false
+       console.log(p1.constructor.prototype.constructor===Person); //false
+
+
+       //3
+       function Person(name){
+       		this.name=name;
+       }
+       Person.prototype={
+       	getName:function (){
+       		return this.name;
+       	}
+       };  //等价于 Person.prototype=new Object({getName:function (){ return this.name;}}); 
+       Person.prototype.constructor=Person;  //手动的将Person.prototype.constructor重新指向Person
+       var p1=new Person("Lisi");
+       console.log(p1.constructor===Person);    //true
+       console.log(Person.prototype.constructor===Person);  //true
+       console.log(p1.constructor.prototype.constructor===Person);  //true
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

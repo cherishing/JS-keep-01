@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出窗口</title>
+    <style>
+        *{margin:0; padding:0;}
+        par{position:relative; width:100%;}
+        input{display:inline-block; background:#f00; color:#fff; border:1px solid #000; cursor:pointer; margin:100px 500px;}
+        #bg{width:100%; height:100%; position:absolute; top:0; left:0;opacity:.5; background:#000; display:none;}
+        #dialog{width:400px; height:400px; border:1px solid #000; position:absolute; left:200px; top:200px;   display:none;  background:rgba(255,255,255,.8); border-radius:10px; box-shadow:0 0 5px #ff0; cursor:pointer;}
+        #city{width:100px; height:40px; margin:0 0 0 100px;}
+    </style>
+</head>
+<body>
+    <div id="par">
+        <div id="bg"></div>
+        <select id="city">
+            <option value="0">北京</option>
+            <option value="1">上海</option>
+            <option value="2">深圳</option>
+            <option value="3">广州</option>
+        </select>
+        <input id="btn" type="button" value="点击">
+        <div id="dialog">这是一个弹出窗口</div>
+    </div>
+    <script>
+        var oBtn=document.getElementById("btn");
+        var oBg=document.getElementById("bg");
+        var oDialog=document.getElementById("dialog");
+        var oSel=document.getElementById("city");
+        var oPs=oSel.getElementsByTagName("option");
+
+        oBtn.onclick=function (){
+            oBg.style.display="block";
+            oDialog.style.display="block";
+
+        };
+
+        var diffX=0;
+        var diffY=0;
+        var isStart=null;
+
+        oDialog.onmousedown=function(e){
+            var e=e||window.event;
+            isStart=true;
+            diffX=e.clientX-oDialog.offsetLeft;
+            diffY=e.clientY-oDialog.offsetTop;
+        };
+        oDialog.onmousemove=function(e){
+            var e=e||window.event;
+            if(isStart){
+                var left=e.clientX-diffX;
+                var top=e.clientY-diffY;
+                if(left<0){
+                    left=0;
+                }
+                else if(left>window.innerWidth-oDialog.offsetWidth){
+                    left=window.innerWidth-oDialog.offsetWidth;
+                }
+                if(top<0){
+                    top=0;
+                }
+                // else if(top>window.innerHeight-oDialog.offsetHeight){
+                //     top=window.innerHeight-oDialog.offsetHeight;
+                // }
+                oDialog.style.left=left+"px";
+                oDialog.style.top=top+"px";
+            }
+        };
+        oDialog.onmouseup=function(e){
+            this.onmousemove=null;
+            // this.onmouseup=null;
+            isStart=false;
+        };
+
+        //选择不同的城市，弹框中显示城市名
+        
+        // function getSelectText(){
+           
+
+          
+         
+        //     for(var i=0;i<oPs.length;i++){
+        //         if(oPs[i].selected){
+        //             console.log(oPs[i].value);
+        //         }
+        //     }
+
+        // }
+        // oSel.addEventListener('click',getSelectText());
+        
+
+    </script>
+</body>
+</html>

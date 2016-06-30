@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-3.0.0.min.js"></script>
+
+</head>
+<body>
+    <div id="div1"></div>
+      <script>
+
+        $(function (){
+             var alertInfo="美好哦";
+            var str="<input type='text' placeholder="+alertInfo+">";  //必须将双引号将变量括起来，单引号无效
+            $("#div1").html(str);   
+            // <input type='text'"+" placeholder='+alertInfo+'>      
+        });
+    </script> 
+</body>
+</html>
