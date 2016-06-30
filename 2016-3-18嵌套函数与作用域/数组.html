@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	 function array_max(){
+	 	var i;
+	 	var max=this[0];
+	 	for(i=1; i<this.length;i++){
+	 		if(max<this[i]){
+	 			max=this[i];
+	 		}
+	 	}
+	 	return max;
+	 }
+	 Array.prototype.max=array_max;
+	 var x=new Array(2,543,234,23,2354);
+	 console.log(x.max());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

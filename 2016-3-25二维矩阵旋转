@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	/*二位矩阵旋转，js中没有二维数组，模拟二维数组，二维数组行列互换*/
+        var arr1=new Array();
+        var global=1;
+        for(var i=0;i<3;i++){
+                arr1[i]=new Array();
+                for(var j=0;j<3;j++){
+                        arr1[i][j]=global;
+                        global++;
+                }
+
+        }
+        console.log(arr1);
+
+		   var newarr=new Array();
+		   for(var n=0;n<3;n++){
+		             newarr[n]=new Array();
+		             for(m=0;m<3;m++){
+		                     newarr[n][m]=arr1[m][n];
+
+		             }
+
+		   }
+		   console.log(newarr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+    
+    var str="fsdsdsahdfhsdjafks";
+    var arr=[];
+    var max=0;    //出现最多的次数
+    var maxvalue; //出现最多次数的字符
+    //遍历：将个字符出现的次数按照存储在数组中
+    for(var i=0;i<str.length;i++){
+    	var k=str[i];
+    	if(!arr[k]){
+    		arr[k]=1;
+    	}else{
+    		arr[k]++;
+    	}
+    }
+    //遍历：找出出现的最多次数 和 值
+    for(var n in arr){
+    	if(max<arr[n]){
+    		max=arr[n];
+    		maxvalue=n;
+    	}
+    }
+    console.log(max,maxvalue);
+    // var arr=[1, 2,324,'erw','rwe'];
+    // console.log(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
